@@ -1,13 +1,14 @@
 'use client';
 
 import { useState } from "react";
-
+import { AiFillCloseCircle } from 'react-icons/ai'
 export default function Login() {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const [failedLogin,setFailedLogin] = useState(false)
 
     const login = async () => {
-        await fetch('http://localhost:5246/login/?' + new URLSearchParams({
+        let result = await fetch('http://localhost:5246/login/?' + new URLSearchParams({
             Email:email,
             Password: password
         }), {
@@ -18,19 +19,22 @@ export default function Login() {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         })
+        if (!result.ok) {
+            setFailedLogin(true)
+        }
     }
     
     return (
         <>
             <div 
-                className="h-screen grid place-items-center bg-gradient-to-r from-slate-500 to-green-500" >
+                className="h-screen grid place-items-center bg-gradient-to-r from-slate-500 to-green-500">
                 <p 
                     className="font-['Times_New_Roman'] text-7xl">
                     Luz
                 </p>
                 <input 
                     autoComplete="off" 
-                    className="px-2 outline outline-1 bg-transparent h-10" 
+                    className="rounded px-2 outline outline-1 bg-transparent h-10" 
                     placeholder="Email" 
                     type="email" 
                     value={email} 
@@ -41,7 +45,7 @@ export default function Login() {
                     className="text-center">
                     <input 
                         autoComplete="off" 
-                        className="px-2 outline outline-1 bg-transparent h-10" 
+                        className="rounded px-2 outline outline-1 bg-transparent h-10" 
                         placeholder="Password" 
                         type="password" 
                         value={password} 
@@ -58,9 +62,21 @@ export default function Login() {
                 </div>
                 <button 
                     onClick={login} 
-                    className="row-start-6 w-64 outline outline-offset-2 outline-1 text-xl">
+                    className="rounded row-start-6 w-64 outline outline-offset-2 outline-1 text-xl">
                         Log in
                 </button>
+                <div 
+                    className="rounded-full flex justify-center items-center bottom-3 h-10 w-80 fixed bg-red-500"
+                    style={{visibility: failedLogin ? 'visible' :  'hidden'}}>
+                    <span>
+                        Wrong email or password 
+                        <div
+                            className="absolute top-0 right-0"
+                            onClick={_ => setFailedLogin(false)}>
+                            <AiFillCloseCircle size={20}/>
+                        </div>
+                    </span>
+                </div>
             </div>
         </>
     )
