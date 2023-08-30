@@ -1,12 +1,25 @@
 'use client';
 
 import { useState } from "react";
-import { AiFillCloseCircle } from 'react-icons/ai'
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
+import Snackbar from '@mui/material/Snackbar'
+import Alert from '@mui/material/Alert'
+
 export default function Registration() {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [userName,setUserName] = useState('')
     const [registrationFailed, setRegistrationFailed] = useState(false)
+    const [open, setOpen] = useState(false)
+
+    const handleOpenClose = () => {
+        setOpen(false)
+    }
+
+    const handleregistrationFailedClose = () => {
+        setRegistrationFailed(false)
+    }
 
     const registration = async () => {
         let result = await fetch('http://localhost:5246/registration', {
@@ -25,46 +38,36 @@ export default function Registration() {
 
         if (!result.ok) {
             setRegistrationFailed(true)
+        } else {
+            setOpen(true)
         }
     }
 
     return (
         <>
             <div 
-                className="h-screen grid place-items-center bg-gradient-to-r from-slate-500 to-green-500">
+                className="h-screen grid place-items-center">
                 <p 
                     className="font-['Times_New_Roman'] text-7xl">
                     Luz
                 </p>
-                <input 
-                    autoComplete="off" 
-                    className="rounded px-2 outline outline-1 bg-transparent h-10" 
-                    placeholder="Email" 
-                    type="email" 
-                    value={email} 
-                    onChange={e => setEmail(e.target.value)} 
-                    name="email">
-                </input>
-                <input 
-                    autoComplete="off" 
-                    className="rounded px-2 outline outline-1 bg-transparent h-10" 
-                    placeholder="Name" 
-                    type="email" 
-                    value={userName} 
-                    onChange={e => setUserName(e.target.value)} 
-                    name="email">
-                </input>
+                <TextField
+                    value={email}
+                    variant="outlined"
+                    type="email"
+                    onChange={e => setEmail(e.target.value)}
+                    label='Email'/>
+                <TextField
+                    value={userName}
+                    onChange={e => setUserName(e.target.value)}
+                    label="Name"/>
                 <div 
                     className="text-center">
-                    <input 
-                        autoComplete="off" 
-                        className="rounded px-2 outline outline-1 bg-transparent h-10" 
-                        placeholder="Password" 
-                        type="Password" 
-                        value={password} 
-                        onChange={p => setPassword(p.target.value)} 
-                        name="password">
-                    </input>
+                    <TextField
+                        type="password"
+                        value={password}
+                        onChange={p => setPassword(p.target.value)}
+                        label="Password"/>
                     <p 
                         className="row-start-4">
                         Have an account?
@@ -73,23 +76,29 @@ export default function Registration() {
                         </a>
                     </p>
                 </div>
-                <button 
-                    onClick={registration} 
-                    className="rounded row-start-6 w-64 outline outline-offset-2 outline-1 text-xl">
+                <Button
+                    onClick={registration}
+                    variant="outlined"
+                    color="primary">
                         Sign Up
-                </button>
-                <div 
-                    className="rounded-full flex justify-center items-center bottom-3 h-10 w-80 fixed bg-red-500"
-                    style={{visibility: registrationFailed ? 'visible' :  'hidden'}}>
-                    <span>
-                        Registration failed!
-                        <div
-                            className="absolute top-0 right-0"
-                            onClick={_ => setRegistrationFailed(false)}>
-                            <AiFillCloseCircle size={20}/>
-                        </div>
-                    </span>
-                </div>
+                </Button>
+                <Snackbar
+                    open={open}
+                    autoHideDuration={3000}
+                    onClose={handleOpenClose}>
+                    <Alert>
+                        Succesful registration
+                    </Alert>
+                </Snackbar>
+                <Snackbar
+                    open={registrationFailed}
+                    autoHideDuration={3000}
+                    onClose={handleregistrationFailedClose}>
+                    <Alert
+                        severity="error">
+                        Unsuccessful registration
+                    </Alert>
+                </Snackbar>
             </div>
         </>
     )
