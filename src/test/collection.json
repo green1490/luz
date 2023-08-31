@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "userID": 1,
+        "title": "Test title",
+        "threadText": "Szöveg",
+        "collectionID": 1,
+        "collectionName": "",
+        "deleted": false,
+        "karma": 0
+    },
+    {
+        "id": 2,
+        "userID": 1,
+        "title": "Naon test title",
+        "threadText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis sagittis lacinia. Nullam elementum tortor diam, nec dictum mi lobortis quis. Aenean ornare cursus orci ornare consectetur. Duis rhoncus laoreet purus. Duis aliquet volutpat sagittis. Proin commodo orci sit amet ante venenatis, venenatis feugiat metus consequat. Nam tristique felis id tortor egestas, at ultrices leo mattis. Praesent tempus lectus a erat mattis, quis viverra diam ullamcorper. Morbi mollis placerat massa, quis gravida neque aliquam sit amet. Pellentesque a bibendum turpis. Maecenas tempor dui sit amet tortor tempor, id posuere libero aliquet.   Fusce a arcu eu risus lobortis mattis. In eu ex ante. Integer ullamcorper purus leo, commodo consequat magna fermentum vitae. Suspendisse bibendum nec tellus dignissim sagittis. Curabitur eget neque felis. Cras cursus feugiat dapibus. Ut dapibus urna velit, eu condimentum velit feugiat ut. Pellentesque quis nisl pharetra, accumsan eros eget, porttitor nulla.Nam ac est ut arcu accumsan condimentum eget nec tortor. Duis volutpat risus eu odio scelerisque, eu eleifend ipsum tempus. Maecenas id sem ac est vestibulum congue. Nullam vitae scelerisque lacus, eget viverra magna. Nunc justo nisl, tempor gravida est non, rutrum tincidunt ante. In rhoncus aliquet ante, non feugiat metus porttitor vel. Curabitur gravida quis mi eget tincidunt. Curabitur scelerisque elementum maximus. Vivamus lacinia gravida erat, et vulputate dui maximus nec.     Vivamus condimentum feugiat sem, quis congue orci pellentesque eget. Cras euismod tortor elit, sit amet vestibulum purus mollis sit amet. Pellentesque iaculis vel nunc volutpat lobortis. Proin vitae nisi fermentum, feugiat mauris ut, viverra nibh. Aenean condimentum feugiat elit eu egestas. Aenean faucibus accumsan ipsum sed facilisis. Cras pharetra sit amet risus a dapibus. Duis semper dictum nunc, sed iaculis dui egestas in. Cras eget porttitor mauris. Donec eget iaculis neque. Cras tempor dapibus lorem quis lobortis. Quisque iaculis tincidunt ex a ullamcorper. Mauris efficitur posuere sapien, eu dictum orci lobortis in. Fusce congue in erat ac posuere.        In posuere tortor ac risus efficitur, at commodo nisl sollicitudin. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed id nisl urna. Proin velit odio, condimentum ut faucibus vitae, commodo nec enim. Duis pharetra quam vel risus feugiat, in tempor ipsum facilisis. Sed condimentum velit sit amet lorem tempor imperdiet. Quisque ut orci quis nibh sodales facilisis. Suspendisse imperdiet dolor vel metus malesuada, non eleifend lorem congue. Sed ac ante nibh. Nunc tempus leo vitae mauris euismod, eu lacinia augue eleifend. Cras viverra pretium ultrices.",
+        "collectionID": 1,
+        "collectionName": "",
+        "deleted": false,
+        "karma": 0
+    },
+    {
+        "id": 3,
+        "userID": 1,
+        "title": "Best test title",
+        "threadText": "nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom nem tudom ",
+        "collectionID": 1,
+        "collectionName": "",
+        "deleted": false,
+        "karma": 0
+    }
+  ]
